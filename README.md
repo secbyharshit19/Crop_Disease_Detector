@@ -4,6 +4,34 @@ A deep learning-based tomato leaf disease classification system built using **Py
 
 The system accepts a tomato leaf image and predicts one of **11 trained classes**, along with prediction confidence and Top-3 predictions. A confidence-based rejection mechanism is also included for images that are not confidently recognized as one of the trained tomato-leaf classes.
 
+## ▶️ Run locally
+
+From the project root:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+streamlit run main.py
+```
+
+Open `http://localhost:8501` in a browser.
+
+## 🚀 Deployment
+
+This is a **Streamlit** application, not a WSGI/ASGI application. Configure the hosting
+service to use the following start command:
+
+```text
+streamlit run main.py --server.address=0.0.0.0 --server.port=$PORT --server.headless=true
+```
+
+The repository includes a `Procfile` with this command for platforms that support
+Procfiles. Do not configure `main.py` as a Flask, FastAPI, or generic Python
+entry point; it intentionally does not export an `app`, `application`, or `handler`
+variable.
+
 ---
 
 ## 📌 Overview
